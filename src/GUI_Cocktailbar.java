@@ -177,6 +177,8 @@ String name = txtName.getText();
                         book.addRecipe(current);
                     } catch (CocktailException ex) {
                         JOptionPane.showMessageDialog(null,ex.getMessage());
+                    } catch (NumberFormatException ex){
+                        JOptionPane.showMessageDialog(null,"Als Alkoholgehalt nur die nummer eingeben ");
                     }
                     txtName.setText("");
                     txtalc.setText("");
@@ -257,10 +259,6 @@ String name = txtName.getText();
             lblGlastyp.setFont(new Font("Arial Unicode MS", Font.PLAIN, 14));
             lblGlastyp.setBounds(35, 217, 115, 20);
             contentPane.add(lblGlastyp);
-
-
-
-            // zuweisung der einzelnen Buttons einer Button Group g
 
 
 
