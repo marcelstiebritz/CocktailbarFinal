@@ -14,6 +14,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import javax.swing.JRadioButton;
 
     public class GUI_Cocktailbar extends JFrame
@@ -26,15 +28,23 @@ import javax.swing.JRadioButton;
         private JTextField txtZutaten;
 
 
-        private CocktailBook book = new CocktailBook();
+        private static CocktailBook book = new CocktailBook();
 
         public String auswahlbutton = "";
 
         /**
          * Launch the application.
          */
-        public static void main(String[] args)
-        {
+        public static void main(String[] args) throws CocktailException {
+            Ingredient Annanas = new Ingredient("Ananassaft");
+            Ingredient Sahne = new Ingredient("Sahne");
+            Ingredient Eiswürfel= new Ingredient ("Eiswürfel");
+            ArrayList<Ingredient> testArray = new ArrayList<Ingredient>();
+            testArray.add(Annanas);
+            testArray.add(Sahne);
+            testArray.add(Eiswürfel);
+            Recipe pinaColada = new Recipe("Pina-Colada",testArray,"Einfach alles zusammenkippen und schütteln ",0,Glass.Cocktailglas);
+            book.addRecipe(pinaColada);
             EventQueue.invokeLater(new Runnable()
             {
                 public void run()

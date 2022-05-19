@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class CocktailBook {
 
@@ -24,6 +25,7 @@ public class CocktailBook {
         }
     }
 
+
     public void removeRecipe(String name) throws CocktailException{
         boolean flag =false;
         for (Recipe currentRecipe : recipes) {
@@ -43,6 +45,7 @@ public class CocktailBook {
                 flag=true;
             }
         }
+        Collections.sort(recipes);
         if (flag){
             throw new CocktailException("Ein Rezept mit diesem Namen existiert bereits");
         }else {
@@ -52,7 +55,7 @@ public class CocktailBook {
 
     }
 
-    //TODO Prüfen ob das überhaupt mit Contains geht
+
     public ArrayList<Recipe> findRecipeByIngredient(ArrayList<Ingredient> ingredients) throws CocktailException {
         ArrayList<Recipe> returnArray = new ArrayList<>();
         for (Recipe currentRecipe : recipes) {
